@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>JD Content Locker</name>
+	<creationDate>November 2014</creationDate>
+	<version>1.0.0</version>
+	<author>JoomDev (Formerly GraphicAholic)</author>
+	<copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>info@joomdev.com</authorEmail>
+	<authorUrl>https://www.joomdev.com</authorUrl>
+	
+	<description>
+	<![CDATA[
+		<div class="alert alert-info" style="font-weight: normal;">
+			<img src="../modules/mod_socialpayment/images/SocialPayment_450px.jpg" alt="JD Content Locker"/>
+			<h3>JD Content Locker</h3>
+			<p>With the help of JD Content Locker, you can lock any specific content and ask your users to tweet or like us on page to unlock the content.</p>
+			<p>JD Content Locker formerly known as Social Payment from Graphicaholic is now moved to JoomDev along with other Extensions. <strong>Check out the <a href="https://www.joomdev.com/graphicaholic" target="_blank">Announcement here.</a></strong></p>
+			<a href="https://www.joomdev.com/forum/jd-content-locker" target="_blank">Support</a> | <span>Demo</span> | <a href="https://www.joomdev.com/products/extensions/jd-content-locker" target="_blank">More Details</a>
+		</div>
+	]]>
+	</description>
+	
+	<files>
+		<filename module="mod_socialpayment">mod_socialpayment.php</filename>
+		<folder>css</folder>
+		<folder>fields</folder>
+		<folder>images</folder>
+		<filename>index.html</filename>
+		<filename>mod_socialpayment.xml</filename>
+	</files>
+	
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_socialpayment/fields">
+			<!-- General Settings -->
+			<fieldset name="general" group="general" label="Module Settings">
+				<field name="downloadSetting" type="gaspacer" label="Download Settings" style="title" />
+				<field name="URLdownload" type="text" default="" label="URL to download or link" description="Enter the full URL path to download file or link." />
+				<field name="newWindow" type="radio" class="btn-group" default="1" label="How to open clicks" description="Open download link in a new or same window?">
+					<option value="1">New window</option>
+					<option value="2">Same window</option>
+				</field>
+				<field name="downloadText" type="textarea" filter="raw" cols="20" rows="3" default="Click here to download the file" label="Text for download link" description="Supports basic HTML tags." />
+				<field name="preText" type="textarea" filter="raw" cols="20" rows="3" default="" label="Text to show above" description="Enter text to show above module. Basic HTML tags supported." />
+				<field name="postText" type="textarea" filter="raw" cols="20" rows="3" default="" label="Text to show below" description="Enter text to show below module. Basic HTML tags supported." />
+				<field name="twitterSetting" type="gaspacer" label="Twitter Settings" style="title" />
+				<field name="twitterClick" type="list" class="btn-group" default="show" label="Add Twitter Clicks" description="">
+					<option value="hide">JNO</option>
+					<option value="show">JYES</option>
+				</field>
+				<field name="twitterName" type="text" showon="twitterClick:show" default="" label="Twitter screen name" description="Enter the Twitter screen name you wish to use to receive tweets" />
+				<field name="multiClick" type="list" showon="twitterClick:show" class="btn-group" default="multi" label="Allow user multiple tweets?" description="Select Yes to allow user to access link more then once. Select No to limit user to access link only once.">
+					<option value="once">JNO</option>
+					<option value="multi">JYES</option>
+				</field>
+				<field name="twitterText" type="textarea" cols="20" rows="3" showon="twitterClick:show" filter="raw" default="Tweet to get..." label="Text before Twitter button" description="Supports basic HTML tags." />
+				<field name="tweetText" type="textarea" cols="20" rows="3" showon="twitterClick:show" default="You just Tweeted to download..." label="Info inside Tweet" description="Enter what you want the twitter feed to say." />
+				<field name="facebookSetting" type="gaspacer" label="Facebook Settings" style="title" />
+				<field name="facebookClick" type="list" class="btn-group" default="hide" label="Add Facebook Clicks" description="">
+					<option value="hide">JNO</option>
+					<option value="show">JYES</option>
+				</field>
+				<field name="fbURL" type="text" showon="facebookClick:show" default="http://www.facebook.com/" label="Facebook URL" description="Enter your entire Facebook URL here." />
+				<field name="fbText" type="text" showon="facebookClick:show" filter="raw" default="Facebook like to get download" label="Text before Facebook button" description="Supports basic HTML tags" />
+				<field name="googleSetting" type="gaspacer" label="Google+ Settings" style="title" />
+				<field name="googleClick" type="list" class="btn-group" default="hide" label="Add Google+ Clicks" description="">
+					<option value="hide">JNO</option>
+					<option value="show">JYES</option>
+				</field>
+				<field name="gText" type="text" showon="googleClick:show" filter="raw" default="Google+ to get download" label="Text before Google+ button" description="Supports basic HTML tags" />
+				<field name="gName" type="text" showon="googleClick:show" default="" label="Your Google+ profile name" description="You will find this inside the Google+ URL once you log-in. This can be a proper name or number depending on how you have your Google+ account set up." />
+				<field name="gURL" type="text" showon="googleClick:show" default="" label="Callback URL" description="Enter the full URL path to return your users to after they post on your Google+ feed." />
+			</fieldset>
+			<!-- Advanced Settings -->
+			<fieldset name="advanced" group="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="fieldMODULECLASSSUFFIX" />
+				<field name="cache" type="radio" class="btn-group" default="1" label="Caching" description="Select whether to cache the content of this module">
+					<option value="1">Use global</option>
+					<option value="0">No caching</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+				<field name="documentation" type="docs" default="900" label="" description="" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
